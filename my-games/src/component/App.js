@@ -6,13 +6,13 @@ class App extends Component {
 
     state = {
 
-        movies: [
+        games: [
             {
                 "id": 1,
                 "name": "The Flash",
                 "rating": 8.3,
                 "overview": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-                "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg"
+                "imageURL": "https://dummyimage.com/240x340/616161/000000"
             },
     
             {
@@ -20,7 +20,7 @@ class App extends Component {
                 "name": "Interstellar",
                 "rating": 6.8,
                 "overview": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-                "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                "imageURL": "https://dummyimage.com/240x340/616161/000000"
             },
     
             {
@@ -28,9 +28,19 @@ class App extends Component {
                 "name": "Arrow",
                 "rating": 7.9,
                 "overview": "This is a wider card with supporting text below as a natural lead-in to additional content.",
-                "imageURL": "https://image.tmdb.org/t/p/w220_and_h330_face/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg"
+                "imageURL": "https://dummyimage.com/240x340/616161/000000"
             }
         ]
+    }
+
+    deletegame = (game) => {
+        const newGamelist = this.state.games.filter(
+            w => w.id !== game.id
+        );
+
+        this.setState({
+            games: newGamelist
+        })
     }
 
     render() {
@@ -42,7 +52,9 @@ class App extends Component {
                     </div>
                 </div>
                 
-                <Gamelist/>
+                <Gamelist
+                games={this.state.games}
+                deletegameProps={this.deletegame}/>
             </div>
         );
     }
