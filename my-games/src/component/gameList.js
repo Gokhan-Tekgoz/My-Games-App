@@ -2,9 +2,6 @@ import React from 'react';
 
 const Gamelist = (props) => {
 
-    function clickbutton (e) {
-        
-    }
 
     return (
         <div className='row'>
